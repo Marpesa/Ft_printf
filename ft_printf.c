@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:07:48 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/08 17:38:31 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/08 18:52:48 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ int	main(void)
 	int	a;
 	char	b[] = "today ?";
 
-	a = 42;
-	ft_printf("Hello %i, how you doin %s\n", a, b);
-	printf("Hello %i, how you doin %s", a, b);
+	a = NULL;
+	ft_printf("%d\n", ft_printf("%p", NULL));
+	ft_printf("Hello %p, how you doin %s\n", NULL, b);
+	printf("Hello %p, how you doin %s", NULL, b);
 	return (0);
 }
