@@ -6,11 +6,11 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 16:08:07 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/08 19:29:44 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 14:33:29 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(int a)
 {

@@ -6,11 +6,11 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 13:29:43 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 13:44:55 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 14:35:27 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_strlen(char *str)
 {

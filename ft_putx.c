@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ub.c                                            :+:      :+:    :+:   */
+/*   ft_putx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 18:26:43 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 14:52:38 by lmery            ###   ########.fr       */
+/*   Created: 2021/12/10 16:15:32 by lmery             #+#    #+#             */
+/*   Updated: 2021/12/10 16:27:40 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
 #include "ft_printf.h"
 
 static int	ft_error(char *base)
@@ -38,39 +37,34 @@ static int	ft_error(char *base)
 	return (1);
 }
 
-static int	ft_convert(unsigned long int nbr, char *base, size_t l, int *ret)
+static int	ft_convert(long int nbr, char *base, int l, int *res)
 {
 	if (nbr >= l)
-	{	
-		(*ret) += 1;
-		ft_convert((nbr / l), base, l, ret);
+	{
+		(*res) += 1;
+		ft_convert((nbr / l), base, l, res);
 		ft_putchar(base[nbr % l]);
 	}
 	else
 	{	
 		ft_putchar(base[nbr % l]);
-		(*ret) += 1;
+		(*res) += 1;
 	}
-	return (*ret);
+	return (*res);
 }
 
-int	ft_ub(unsigned long int nbr, char *base)
+int	ft_putx(unsigned int nbr, char *base)
 {
-	size_t			l;
-	unsigned long int	nb;
-	int			ret;
+	int			l;
+	unsigned int	nb;
+	int			res;
 
-	ret = 0;
-	nb = nbr;
-	if (!nbr)
-	{
-			write(1, "(nil)", 5);
-			return (3);
-	}
+	res = 0;
+	nb = (unsigned long int) nbr;
 	if (!ft_error(base))
 		return (0);
-	write(1, "0x", 2);
 	l = ft_strlen(base);
-	ft_convert(nb, base, l, &ret);
-	return (ret);
+	res += ft_convert(nb, base, l, &res);
+	return (res / 2);
 }
+

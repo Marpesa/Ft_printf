@@ -6,12 +6,11 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:37:06 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/08 16:16:52 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 14:33:44 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/libft.h"
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar_n(int a)
 {

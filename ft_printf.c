@@ -6,15 +6,17 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:07:48 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 14:18:12 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 19:16:48 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
 static int	ft_parse(const char *s, va_list toprint, int i, int l)
 {
+	int	f;
+
+	f = 0;
 	while (s[i])
 	{
 		if (s[i] != '%')
@@ -23,28 +25,36 @@ static int	ft_parse(const char *s, va_list toprint, int i, int l)
 		{
 			i++;
 			l--;
-			while (ft_flag(s[i]) != 0)
+			if (ft_flag(s, i) != 0)
 			{
-				l -= 1;
-				i++;
+				f = ft_flag(s, i);
+				l -= f;
+				i += f;
 			}
-			l += ft_type(s[i++], toprint);
+			l += ft_type(s[i++], toprint) - 1;
+			if (f != 0)
+				l += ft_apply_flag(s, (i - f - 1));
 		}
 	}
-	l += i - 2;
+	l += i;
 	return (l);
 }
 
-int	ft_printf(const char *s, ...)
+int	ft_printf(const char *echo, ...)
 {
 	va_list	toprint;
 	int		i;
 	int		l;
+	const char *s;
 
-	va_start (toprint, s);
+	s = ft_strdup(echo);
+	if (!s)
+			return (0);
+	va_start (toprint, echo);
 	i = 0;
 	l = 0;
 	l = ft_parse(s, toprint, i, l);
+	free((char *)s);
 	va_end (toprint);
 	return (l);
 }
@@ -55,7 +65,7 @@ int	main(void)
 	char	b[] = "today ?";
 
 	a = 42;
-	printf("%d\n", ft_printf("Hello %p, how you doin %s\n", &a, b));
-	printf("%d\n", printf("Hello %p, how you doin %s\n", &a, b));
+	printf("%d\n", ft_printf("%-1c", '0'));
+	printf("%d\n", printf("%-1c", '0'));
 	return (0);
 }

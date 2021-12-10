@@ -6,19 +6,26 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:55:48 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 13:48:24 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 19:04:04 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_flag(char c)
+int	ft_flag(const char *s, int i)
 {
-	if (c == '-')
-			return (1);
-	else if (c == '0')
-			return (2);
-	else if (c == '.')
-			return (3);
-	return (0);
+	int	r;
+
+	r = 0;
+	if (s[i] == '-' || s[i] == '0' || s[i] == '.')
+	{
+			i++;
+			r++;
+			while (s[i] >= '0' && s[i] <= '9')
+			{
+					i++;
+					r++;
+			}
+	}
+	return (r);
 }
