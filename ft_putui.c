@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:45:05 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/08 16:22:32 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 13:38:30 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 int	ft_putui(unsigned long int a)
 {
-	int	ret;
+	static int	ret = 0;
 
-	ret = 0;
 	if (a > 9)
 	{
 		ft_putui(a / 10);

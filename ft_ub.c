@@ -6,26 +6,12 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:26:43 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/08 18:32:42 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/10 13:50:28 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
-
-static int	ft_strlen(char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-static void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include "printf.h"
 
 static int	ft_error(char *base)
 {
@@ -52,28 +38,25 @@ static int	ft_error(char *base)
 	return (1);
 }
 
-static int	ft_convert(long int nbr, char *base, int L)
+static int	ft_convert(long int nbr, char *base, int l, int *ret)
 {
-	int	ret;
-
-	ret = 0;
-	if (nbr >= L)
+	if (nbr >= l)
 	{	
-		ft_convert((nbr / L), base, L);
-		ft_putchar(base[nbr % L]);
-		ret++;
+		(*ret) += 1;
+		ft_convert((nbr / l), base, l, ret);
+		ft_putchar(base[nbr % l]);
 	}
 	else
 	{	
-		ft_putchar(base[nbr % L]);
-		ret++;
+		ft_putchar(base[nbr % l]);
+		(*ret) += 1;
 	}
-	return (ret);
+	return (*ret);
 }
 
 int	ft_ub(unsigned long int nbr, char *base)
 {
-	int			L;
+	int			l;
 	long int	nb;
 	int			ret;
 
@@ -81,14 +64,14 @@ int	ft_ub(unsigned long int nbr, char *base)
 	nb = nbr;
 	if (!ft_error(base))
 		return (0);
+	write(1, "0x", 2);
 	if (nb < 0)
 	{
 		ft_putchar('-');
 		ret++;
 		nb = nb * (-1);
 	}
-	L = ft_strlen(base);
-	ret += ft_convert(nb, base, L);
+	l = ft_strlen(base);
+	ft_convert(nb, base, l, &ret);
 	return (ret);
 }
-
