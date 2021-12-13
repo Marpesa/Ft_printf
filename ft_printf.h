@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:49:37 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 18:59:48 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/13 15:27:39 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int		ft_putui(unsigned int a);
 int		ft_type(char c, va_list args);
 int		ft_ub(unsigned long int nbr, char *base);
 int		ft_flag(const char *s, int i);
-int		ft_apply_flag(const char *s, int i);
+int		ft_apply_flag(const char *s, int i, va_list args);
+int		ft_flag_int(const char *s, int i);
 
 char	*ft_strdup(const char *s);
 

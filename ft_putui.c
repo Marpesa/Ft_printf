@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:45:05 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 16:11:20 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/13 11:29:56 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,19 @@ static int ft_check_lim(unsigned int a)
 	return (0);
 }
 
-static int ft_putui_rec(unsigned int b)
+static int ft_putui_rec(unsigned int b, int *ret)
 {
-	static int	ret = 0;
-
 	if (b > 9)
 	{
-		ft_putui_rec(b / 10);
-		ft_putui_rec(b % 10);
+		ft_putui_rec(b / 10, ret);
+		ft_putui_rec(b % 10, ret);
 	}
 	if (b <= 9)
 	{
 		ft_putchar(b + '0');
-		ret++;
+		(*ret)++;
 	}
-	return (ret);
+	return (*ret);
 }
 
 int	ft_putui(unsigned int a)
@@ -44,10 +42,11 @@ int	ft_putui(unsigned int a)
 	int	ret;
 	unsigned int	b;
 
+	ret = 0;
 	b = a;
 	if (ft_check_lim(a))
 			return (1);
-	ret = ft_putui_rec(b);
+	ret = ft_putui_rec(b, &ret);
 	if ((unsigned int)a > INT_MAX)
 			return (10);
 	return (ret);

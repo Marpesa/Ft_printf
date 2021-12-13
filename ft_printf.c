@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:07:48 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 19:16:48 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/13 15:51:58 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static int	ft_parse(const char *s, va_list toprint, int i, int l)
 {
 	int	f;
+	va_list temp;
 
+	va_copy(temp, toprint);
 	f = 0;
 	while (s[i])
 	{
@@ -33,7 +35,7 @@ static int	ft_parse(const char *s, va_list toprint, int i, int l)
 			}
 			l += ft_type(s[i++], toprint) - 1;
 			if (f != 0)
-				l += ft_apply_flag(s, (i - f - 1));
+				l += ft_apply_flag(s, (i - f - 1), temp);
 		}
 	}
 	l += i;
@@ -65,7 +67,7 @@ int	main(void)
 	char	b[] = "today ?";
 
 	a = 42;
-	printf("%d\n", ft_printf("%-1c", '0'));
-	printf("%d\n", printf("%-1c", '0'));
+	printf("%d\n", ft_printf("%c ", '0'));
+	printf("%d\n", printf("%c ", '0'));
 	return (0);
 }
