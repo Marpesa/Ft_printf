@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:37:13 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/13 15:50:53 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/13 18:34:29 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	ft_flag_minus(const char *s, int i, int l)
 			i++;
 			c++;
 	}
-	r = n - 1;
+	r = n;
 	if (n == 1)
-		r = 0;
+		r = 1;
 //	printf("N = %d\n", n);
 //	printf("L = %d\n", l);
 	if (n > l)
@@ -53,8 +53,13 @@ int	ft_apply_flag(const char *s, int i, va_list args)
 
 	l = 0;
 	l = ft_strlen(va_arg(args, char *));
+	printf("L = %d\n", l);
+	printf("S = %d\n", i);
 	if (s[i] == '-')
 			return (ft_flag_minus(s, i, l));
+	if ((s[i] >= '1' && s[i] <= '9')	
+			|| ((s[i] == '0') && (s[i + 1] >= '0' && s[i + 1] <= '9')))
+		return (ft_flag_int(s, i, l));
 //	if (s[i] == '0')
 //			return (ft_flag_zero(s, i));
 //	if (s[i] == '.')

@@ -6,13 +6,13 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 11:53:22 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/13 12:17:14 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/13 18:32:21 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_flag_int(const char *s, int i)
+int	ft_flag_int(const char *s, int i, int l)
 {
 		int	n;
 		int	t;
@@ -20,17 +20,21 @@ int	ft_flag_int(const char *s, int i)
 		n = 0;
 		while (s[i] >= '0' && s[i] <= '9')
 		{
-				n += s[i] + 48;
-				i++;
-				if (s[i] >= '0' && s[i] <= '9')
-						n *= 10;
+			n += s[i] - 48;
+			i++;
+			if (s[i] >= '0' && s[i] <= '9')
+				n *= 10;
 		}
-		printf ("N = %d\n", n);
 		t = n;
-/*		while (n > 0)
+//		printf("T = %d\n", t);
+		if (n > l)
 		{
+			while ((n - l) > 0)
+			{
 				write (1, " ", 1);
 				n--;
+			}
+		return (t - l);
 		}
-		return (t);*/
+		return (0);
 }

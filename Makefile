@@ -6,7 +6,7 @@
 #    By: lmery <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 14:24:43 by lmery             #+#    #+#              #
-#    Updated: 2021/12/10 19:15:19 by lmery            ###   ########.fr        #
+#    Updated: 2021/12/13 16:58:08 by lmery            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ FILES =	ft_printf \
 	ft_putstr_n \
 	ft_type \
 	ft_flag \
+	ft_flag_int \
 	ft_apply_flag \
 	ft_putchar \
 	ft_putnbrbase_n \
