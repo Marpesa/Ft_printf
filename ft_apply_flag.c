@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:37:13 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/13 18:34:29 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/14 17:34:39 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,21 @@ static int	ft_flag_minus(const char *s, int i, int l)
 
 int	ft_apply_flag(const char *s, int i, va_list args)
 {
-	int	l;
+	int		l;
+	int		j;
 
+	j = 0;
 	l = 0;
-	l = ft_strlen(va_arg(args, char *));
-	printf("L = %d\n", l);
-	printf("S = %d\n", i);
+	l = ft_strlen_arg(s, i, args);
+	while((s[i + j] >= '0' && s[i + j] <= '9') 
+			|| s[i + j] == '-' || s[i + j] == '.')
+		j++;
+	if (s[i + j] == '%')
+			return (0);
 	if (s[i] == '-')
 			return (ft_flag_minus(s, i, l));
 	if ((s[i] >= '1' && s[i] <= '9')	
-			|| ((s[i] == '0') && (s[i + 1] >= '0' && s[i + 1] <= '9')))
+			|| ((s[i] == '0') && (s[i + 1] > '0' && s[i + 1] <= '9')))
 		return (ft_flag_int(s, i, l));
 //	if (s[i] == '0')
 //			return (ft_flag_zero(s, i));

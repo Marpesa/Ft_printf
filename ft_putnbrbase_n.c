@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:22:43 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 14:34:04 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/14 17:30:05 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_putnbrbase_n(int nbr, char *base)
 	int			l;
 	long int	nb;
 	int			res;
-
+	
 	res = 0;
 	nb = nbr;
 	if (!ft_error(base))

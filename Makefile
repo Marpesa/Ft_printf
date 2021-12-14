@@ -6,7 +6,7 @@
 #    By: lmery <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 14:24:43 by lmery             #+#    #+#              #
-#    Updated: 2021/12/13 16:58:08 by lmery            ###   ########.fr        #
+#    Updated: 2021/12/14 15:30:48 by lmery            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ FILES =	ft_printf \
 	ft_putx \
 	ft_putui \
 	ft_strlen \
+	ft_strlen_arg \
 	ft_strdup \
 	ft_ub \
 
