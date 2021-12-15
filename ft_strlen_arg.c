@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:03:25 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/14 17:44:31 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/15 20:26:59 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static int ft_intlen(long int n)
 	int	c;
 	
 	c = 0;	
-//	printf("N = %d\n", n);
 	if (n == LONG_MIN || n == 0)
 			return (1);
 	if (n == LONG_MAX)
@@ -41,8 +40,11 @@ static int ft_intlen(long int n)
 			return (2);
 	if (!n)
 		return (5);
-	if (n < 0)
+	if ((int)n < 0)
+	{
 		c++;
+		n = (int)n * -1;
+	}
 	while (n != 0)
 	{
 			n /= 10;

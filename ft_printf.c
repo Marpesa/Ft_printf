@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:07:48 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/14 17:46:07 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/15 21:16:48 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,12 @@ int	main(void)
 	int	a;
 	char	b[] = "centimes";
 
-	a = 42684;
-	printf("%d\n", ft_printf(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
-	printf("%d\n", printf(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+	a = -2684;
+	printf("%d\n", ft_printf("%25d", a));
+	printf("%d\n", printf("%25d", a));
 	return (0);
 }
+
+// Reussir a appliquer flag zero avant le signe d'un int neg
+// envoyer la flag zero dans put nbr (pointeur sur fonction ?)
+// ou bien sortir le putchar du '-' dans la foncion principale (mieux).
