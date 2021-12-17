@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:07:48 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/17 18:48:32 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/17 19:22:16 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	main(void)
 	int	a;
 	char	b[] = "centimes";
 
-	a = 2684;
-	printf("%d\n", ft_printf(" yo %023d\n", a));
-	printf("%d\n", printf(" yo %023d\n", a));
+	a = INT_MIN;
+	printf("%d\n", ft_printf(" yo %-023d\n", a));
+	printf("%d\n", printf(" yo %-023d\n", a));
 	return (0);
 }*/
