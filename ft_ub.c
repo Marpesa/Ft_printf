@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:26:43 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 14:52:38 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/17 16:36:23 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,16 @@ static int	ft_convert(unsigned long int nbr, char *base, size_t l, int *ret)
 
 int	ft_ub(unsigned long int nbr, char *base)
 {
-	size_t			l;
+	size_t				l;
 	unsigned long int	nb;
-	int			ret;
+	int					ret;
 
 	ret = 0;
 	nb = nbr;
 	if (!nbr)
 	{
-			write(1, "(nil)", 5);
-			return (3);
+		write(1, "(nil)", 5);
+		return (3);
 	}
 	if (!ft_error(base))
 		return (0);

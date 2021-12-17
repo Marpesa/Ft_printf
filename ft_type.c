@@ -6,12 +6,11 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 14:30:40 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/15 21:15:06 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/17 16:35:54 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 int	ft_type(char c, va_list args)
 {
@@ -25,7 +24,7 @@ int	ft_type(char c, va_list args)
 	else if (c == 'p')
 		r = ft_ub(va_arg(args, unsigned long int), "0123456789abcdef") + 2;
 	else if (c == 'd' || c == 'i')
-		r = ft_putnbrbase_n(va_arg(args, int), s, i, k);
+		r = ft_putnbrbase_n(va_arg(args, int));
 	else if (c == 'u')
 		r = ft_putui(va_arg(args, unsigned int));
 	else if (c == 'x')

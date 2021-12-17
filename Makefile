@@ -6,7 +6,7 @@
 #    By: lmery <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 14:24:43 by lmery             #+#    #+#              #
-#    Updated: 2021/12/14 15:30:48 by lmery            ###   ########.fr        #
+#    Updated: 2021/12/17 18:49:24 by lmery            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,17 +51,19 @@ FILES =	ft_printf \
 	ft_putchar_n \
 	ft_putstr_n \
 	ft_type \
-	ft_flag \
-	ft_flag_int \
-	ft_apply_flag \
 	ft_putchar \
 	ft_putnbrbase_n \
 	ft_putx \
 	ft_putui \
 	ft_strlen \
-	ft_strlen_arg \
 	ft_strdup \
 	ft_ub \
+
+FILES_B = ft_flag_bonus \
+	ft_flag_int_bonus \
+	ft_flag_zero_bonus \
+	ft_apply_flag_bonus \
+	ft_strlen_arg_bonus \
 
 
 SRCS_DIR = ./

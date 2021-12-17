@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 16:15:32 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/10 16:27:40 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/17 16:33:28 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static int	ft_convert(long int nbr, char *base, int l, int *res)
 
 int	ft_putx(unsigned int nbr, char *base)
 {
-	int			l;
+	int				l;
 	unsigned int	nb;
-	int			res;
+	int				res;
 
 	res = 0;
 	nb = (unsigned long int) nbr;
@@ -67,4 +67,3 @@ int	ft_putx(unsigned int nbr, char *base)
 	res += ft_convert(nb, base, l, &res);
 	return (res / 2);
 }
-

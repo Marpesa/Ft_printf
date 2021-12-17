@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_n.c                                      :+:      :+:    :+:   */
+/*   ft_flag_zero_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 15:42:13 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/17 16:36:58 by lmery            ###   ########.fr       */
+/*   Created: 2021/12/15 20:54:02 by lmery             #+#    #+#             */
+/*   Updated: 2021/12/17 18:10:08 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_n(char *s)
+int	ft_flag_zero(const char *s, int i, int l)
 {
-	int	i;
+	int	n;
+	int	r;
 
-	if (!s)
+	r = 0;
+	n = 0;
+	i++;
+	while (s[i] >= '0' && s[i] <= '9')
 	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		n += (s[i] - 48);
+		if (s[i + 1] >= '0' && s[i + 1] <= '9')
+			n *= 10;
 		i++;
 	}
-	return (i);
+	r = n;
+	if (n > l)
+	{
+		while (n - l)
+		{
+			write (1, "0", 1);
+			n--;
+		}
+	}
+	return (r - n);
 }

@@ -6,7 +6,7 @@
 /*   By: lmery <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 15:22:43 by lmery             #+#    #+#             */
-/*   Updated: 2021/12/15 21:14:42 by lmery            ###   ########.fr       */
+/*   Updated: 2021/12/17 16:53:12 by lmery            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 #include "ft_printf.h"
 
-static int	ft_convert(long int nbr, int l, int *res)
+static int	ft_convert(long int nbr, char *base, int l, int *res)
 {
-	char base[10] = "0123456789";
 	if (nbr >= l)
 	{
 		(*res) += 1;
@@ -31,21 +30,23 @@ static int	ft_convert(long int nbr, int l, int *res)
 	return (*res);
 }
 
-int	ft_putnbrbase_n(int nbr, char *s, int i, int k)
+int	ft_putnbrbase_n(int nbr)
 {
 	int			l;
 	long int	nb;
 	int			res;
+	char		*base;
 
+	base = "0123456789";
 	res = 0;
 	nb = nbr;
-	if (nb < 0) //&& ft_flag_zero(s, i, k
+	if (nb < 0)
 	{
 		ft_putchar('-');
 		res++;
 		nb = nb * (-1);
 	}
 	l = 10;
-	res += ft_convert(nb, l, &res);
+	res += ft_convert(nb, base, l, &res);
 	return (res / 2);
 }
